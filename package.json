@@ -1,0 +1,11 @@
+{
+  "name": "ts-setup-automation",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "ts.js",
+  "scripts": {
+    "start": "node ts.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
