@@ -1,4 +1,7 @@
-// setup-typescript-project.js
+// setup ts.js
+
+
+
 import { execSync } from "child_process";
 import fs from "fs";
 import readline from "readline";
@@ -80,6 +83,7 @@ async function main() {
   console.log(`${entryFile} created.`);
 
   rl.close();
+
   console.log(`
 Setup complete.
 Next steps:
@@ -89,24 +93,24 @@ Next steps:
   - Edit tsconfig.json anytime to adjust compiler settings
   `);
 
-  // 7. Ask for deletion confirmation
-    console.log("\nSetup will self-destruct in 10 seconds. Cancel with CTRL+C if you change your mind.");
+  // 7. Auto self-destruct after 10 seconds
+  console.log("\nSetup will self-destruct in 5 seconds. Cancel now (CTRL+C) to stop this.");
 
-    process.on("exit", () => {
-      setTimeout(() => {
-        const dir = process.cwd();
-        try {
-          fs.rmSync(dir, { recursive: true, force: true });
-          console.log(`Deleted directory: ${dir}`);
-        } catch (err) {
-          console.error("Error deleting directory:", err.message);
-        }
-      }, 10000); // 10-second delay
-    });
-  
+  setTimeout(() => {
+    const dir = process.cwd();
+    try {
+      fs.rmSync(dir, { recursive: true, force: true });
+      console.log(`Deleted directory: ${dir}`);
+      process.exit(0);
+    } catch (err) {
+      console.error("Error deleting directory:", err.message);
+      process.exit(1);
+    }
+  }, 5000);
 }
 
 main().catch((err) => {
   console.error("Error during setup:", err);
   rl.close();
 });
+      
