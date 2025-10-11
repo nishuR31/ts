@@ -2,7 +2,7 @@
 
 [![TypeScript](https://img.shields.io/badge/TypeScript%20ESNext-blue?logo=typescript&style=flat&logoColor=black)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-green?logo=node.js&style=flat&logoColor=black)](https://nodejs.org/)
-[![npm](https://img.shields.io/badge/npm%20DevDependencies-red?logo=npm&style=flat&logoColor=black)](https://www.npmjs.com/)
+[![npm](https://img.shields.io/badge/npm-red?logo=npm&style=flat&logoColor=black)](https://www.npmjs.com/)
 
 This repository contains a **TypeScript project auto-setup script**. It creates a ready-to-use TypeScript environment with pre-configured `tsconfig.json`, `package.json` scripts, and a starter file — and self-destructs after use.
 
@@ -83,17 +83,7 @@ project-root/
 | `run`   | Compiles with `tsc` and executes `dist/index.js`   |
 | `build` | Builds TypeScript project to `outDir` (`dist`)     |
 
----
 
-## Badges
-
-```markdown
-[![TypeScript](https://img.shields.io/badge/TypeScript-ESNext-blue?logo=typescript)](https://www.typescriptlang.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-16%2B-green?logo=node.js)](https://nodejs.org/)
-[![npm](https://img.shields.io/badge/npm-DevDependencies-red?logo=npm)](https://www.npmjs.com/)
-```
-
----
 
 ## Notes
 
