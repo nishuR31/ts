@@ -38,7 +38,7 @@ async function main() {
       console.log("package.json already exists, skipping init.");
     }
 
-    let packageJson = fs.readSync(`${root}\/package.json`, "utf-8");
+    let packageJson = fs.readFileSync(`${root}\/package.json`, "utf-8");
     Object.assign(packageJson, { type: "module" });
     fs.writeFileSync(
       `${root}\/package.json`,
