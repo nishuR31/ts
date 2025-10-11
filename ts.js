@@ -38,15 +38,6 @@ async function main() {
       console.log("package.json already exists, skipping init.");
     }
 
-    let packageJson = JSON.parse(
-      fs.readFileSync(`${root}\/package.json`, "utf-8")
-    );
-    Object.assign(packageJson, { type: "module" });
-    fs.writeFileSync(
-      `${root}\/package.json`,
-      JSON.stringify(packageJson, null, 2)
-    );
-
     // 2. Install required dev dependencies
     run(`echo "Installing dependencies like json5" `);
 
@@ -100,13 +91,21 @@ async function main() {
     console.log("tsconfig.json updated.");
 
     // 5. Update package.json scripts
-    const pkg = JSON.parse(fs.readFileSync(`${root}\/package.json`, "utf-8"));
-    pkg.scripts = Object.assign(pkg.scripts, {
+    const packageJson = JSON.parse(
+      fs.readFileSync(`${root}\/package.json`, "utf-8")
+    );
+    packageJson.scripts = Object.assign(packageJson.scripts, {
       dev: "npx tsx --watch src/index.ts",
       run: "npx tsc && node dist/index.js",
       build: "npx tsc",
     });
-    fs.writeFileSync(`${root}\/package.json`, JSON.stringify(pkg, null, 2));
+    packageJson = Object.assign(packageJson, {
+      type: "module",
+    });
+    fs.writeFileSync(
+      `${root}\/package.json`,
+      JSON.stringify(packageJson, null, 2)
+    );
     console.log("package.json scripts added.");
 
     // 6. Create folder structure and starter file
