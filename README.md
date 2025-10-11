@@ -70,7 +70,7 @@ project-root/
 ├─ dist/
 │  └─ (future JavaScript files)
 ├─ src/
-│  └─ (future TypeScript files)
+   └─ (future TypeScript files)
 ```
 
 ---
@@ -85,7 +85,7 @@ project-root/
 
 
 
-## Notes
+### Notes
 
 - The script will **self-destruct the setup folder** (`ts`) after completion by default. Cancel by pressing `CTRL+C` before it finishes.
 - All configurations are editable via the generated `tsconfig.json`.
