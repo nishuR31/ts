@@ -99,9 +99,7 @@ async function main() {
       run: "npx tsc && node dist/index.js",
       build: "npx tsc",
     });
-    packageJson = Object.assign(packageJson, {
-      type: "module",
-    });
+    packageJson.type = "module";
     fs.writeFileSync(
       `${root}\/package.json`,
       JSON.stringify(packageJson, null, 2)
