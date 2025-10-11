@@ -3,10 +3,9 @@ import readline from "readline";
 import { fileURLToPath } from "url";
 import path from "path";
 import fs from "node:fs";
-import json5 from "json5";
 import modules from "./modules.js";
 import { spawn } from "node:child_process";
-
+import pkg from "./import.js";
 
 let root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 let ts = path.dirname(fileURLToPath(import.meta.url));
@@ -26,8 +25,6 @@ function run(cmd, message = "") {
   console.log(`\n${message || "Execution in progress.."}`);
   execSync(cmd, { stdio: "inherit" });
 }
-
-
 
 async function main() {
   try {
@@ -49,6 +46,11 @@ async function main() {
     );
 
     // 2. Install required dev dependencies
+    run(`echo "Installing dependencies like json5" `);
+
+    let mod = await pkg("json5");
+    let json5 = mod.default || mod;
+
     run(
       `cd ${root} && npm i -D ${modules}`,
       "Installing dev dependencies like TypeScript, tsx, and Node types"
