@@ -3,12 +3,10 @@ import { fileURLToPath } from "url";
 import path from "path";
 let root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
-export default async function pkg(mod, path = `${root}`) {
+export default async function pkg(mod, path = root) {
   try {
-    return await import(mod);
+    return mod ? await import(mod) : execSync(`cd "${root}" && npm install ${mod}`,{cwd:path});
   } catch (e) {
-    console.log(`${mod} not found. Installing...`);
-    execSync(`cd ${path} && npm i ${mod}`, { stdio: "inherit" });
-    return await import(mod);
+    console.log(`Error installing ${mod}: ${e}`);
   }
 }
