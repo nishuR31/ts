@@ -82,6 +82,8 @@ async function main() {
       esModuleInterop: true,
       strict: strictMode.toLowerCase() === "y",
       skipLibCheck: true,
+      emitDeclarationOnly:true,
+      noEmit: true
       forceConsistentCasingInFileNames: true,
     });
 
