@@ -77,6 +77,7 @@ async function main() {
       module: moduleType,
       moduleResolution,
       rootDir,
+      allowImportingTsExtensions:true,
       outDir,
       esModuleInterop: true,
       strict: strictMode.toLowerCase() === "y",
