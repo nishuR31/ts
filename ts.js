@@ -231,6 +231,7 @@ async function main() {
 
     Object.assign(tsconfig.compilerOptions, {
       target,
+      verbatimModuleSyntax: true,
       module: moduleType,
       moduleResolution,
       rootDir,
