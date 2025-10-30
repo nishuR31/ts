@@ -241,7 +241,7 @@ async function main() {
       strict: strictMode.toLowerCase() === "y",
       skipLibCheck: true,
       emitDeclarationOnly: true,
-      noEmit: true,
+      noEmit: false,
       forceConsistentCasingInFileNames: true,
     });
 
