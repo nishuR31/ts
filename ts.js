@@ -243,6 +243,12 @@ async function main() {
       emitDeclarationOnly: false,
       noEmit: false,
       forceConsistentCasingInFileNames: true,
+      // lib: ["esnext"],           // fine
+// types: ["node"],            // fine for Node
+verbatimModuleSyntax: true, // good
+isolatedModules: true,      // good
+moduleDetection: "force",   // okay
+
     });
 
     fs.writeFileSync(`${root}/tsconfig.json`, JSON.stringify(tsconfig, null, 2));
